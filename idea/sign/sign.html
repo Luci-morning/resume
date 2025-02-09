@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up Form</title>
+  <style>
+    /* General Styles */
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f4f4f9;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .form {
+      background: #ffffff;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 400px;
+      text-align: center;
+    }
+
+    .title {
+      font-size: 2rem;
+      font-weight: bold;
+      color: #333;
+      margin-bottom: 1rem;
+    }
+
+    .title span {
+      font-size: 1rem;
+      font-weight: normal;
+      color: #666;
+    }
+
+    .input {
+      width: 100%;
+      padding: 0.75rem;
+      margin: 0.5rem 0;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      font-size: 1rem;
+      outline: none;
+      transition: border-color 0.3s ease;
+    }
+
+    .input:focus {
+      border-color: #007bff;
+    }
+
+    .input.invalid {
+      border-color: #ff4d4d;
+    }
+
+    .login-with {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin: 1rem 0;
+    }
+
+    .button-log {
+      background: #f4f4f9;
+      border: 1px solid #ddd;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .button-log:hover {
+      background: #e0e0e0;
+    }
+
+    .button-log svg {
+      width: 24px;
+      height: 24px;
+    }
+
+    .button-confirm {
+      width: 100%;
+      padding: 0.75rem;
+      background: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .button-confirm:hover {
+      background: #0056b3;
+    }
+
+    .error-message {
+      color: #ff4d4d;
+      font-size: 0.875rem;
+      margin-top: 0.25rem;
+      text-align: left;
+      display: none;
+    }
+
+    .error-message.visible {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <form class="form" id="signup-form" action="success.html" method="GET">
+    <div class="title">Welcome,<br><span>sign up to continue</span></div>
+    <input type="email" placeholder="Email" name="email" class="input" id="email" required>
+    <div class="error-message" id="email-error">Please enter a valid email address.</div>
+    <input type="password" placeholder="Password" name="password" class="input" id="password" required minlength="6">
+    <div class="error-message" id="password-error">Password must be at least 6 characters long.</div>
+    <div class="login-with">
+      <div class="button-log" aria-label="Login with Cat">🐱</div>
+      <div class="button-log" aria-label="Login with Google">
+        <svg class="icon" height="56.6934px" id="Layer_1" style="enable-background:new 0 0 56.6934 56.6934;" version="1.1" viewBox="0 0 56.6934 56.6934" width="56.6934px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+          <path d="M51.981,24.4812c-7.7173-0.0038-15.4346-0.0019-23.1518-0.001c0.001,3.2009-0.0038,6.4018,0.0019,9.6017  c4.4693-0.001,8.9386-0.0019,13.407,0c-0.5179,3.0673-2.3408,5.8723-4.9258,7.5991c-1.625,1.0926-3.492,1.8018-5.4168,2.139  c-1.9372,0.3306-3.9389,0.3729-5.8713-0.0183c-1.9651-0.3921-3.8409-1.2108-5.4773-2.3649  c-2.6166-1.8383-4.6135-4.5279-5.6388-7.5549c-1.0484-3.0788-1.0561-6.5046,0.0048-9.5805  c0.7361-2.1679,1.9613-4.1705,3.5708-5.8002c1.9853-2.0324,4.5664-3.4853,7.3473-4.0811c2.3812-0.5083,4.8921-0.4113,7.2234,0.294  c1.9815,0.6016,3.8082,1.6874,5.3044,3.1163c1.5125-1.5039,3.0173-3.0164,4.527-4.5231c0.7918-0.811,1.624-1.5865,2.3908-2.4196  c-2.2928-2.1218-4.9805-3.8274-7.9172-4.9056C32.0723,4.0363,26.1097,3.995,20.7871,5.8372  C14.7889,7.8907,9.6815,12.3763,6.8497,18.0459c-0.9859,1.9536-1.7057,4.0388-2.1381,6.1836  C3.6238,29.5732,4.382,35.2707,6.8468,40.1378c1.6019,3.1768,3.8985,6.001,6.6843,8.215c2.6282,2.0958,5.6916,3.6439,8.9396,4.5078  c4.0984,1.0993,8.461,1.0743,12.5864,0.1355c3.7284-0.8581,7.256-2.6397,10.0725-5.24c2.977-2.7358,5.1006-6.3403,6.2249-10.2138  C52.5807,33.3171,52.7498,28.8064,51.981,24.4812z"></path>
+        </svg>
+      </div>
+      <div class="button-log" aria-label="Login with Facebook">
+        <svg xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="56.693px" viewBox="0 0 56.693 56.693" version="1.1" id="Layer_1" height="56.693px" class="icon">
+          <path d="M40.43,21.739h-7.645v-5.014c0-1.883,1.248-2.322,2.127-2.322c0.877,0,5.395,0,5.395,0V6.125l-7.43-0.029  c-8.248,0-10.125,6.174-10.125,10.125v5.518h-4.77v8.53h4.77c0,10.947,0,24.137,0,24.137h10.033c0,0,0-13.32,0-24.137h6.77  L40.43,21.739z"></path>
+        </svg>
+      </div>
+    </div>
+    <button type="submit" class="button-confirm">Start Now →</button>
+  </form>
+
+  <script>
+    // Form Validation
+    const form = document.getElementById('signup-form');
+    const emailInput = document.getElementById('email');
+    const passwordInput = document.getElementById('password');
+    const emailError = document.getElementById('email-error');
+    const passwordError = document.getElementById('password-error');
+
+    form.addEventListener('submit', (event) => {
+      let isValid = true;
+
+      // Email Validation
+      if (!emailInput.value || !emailInput.checkValidity()) {
+        emailInput.classList.add('invalid');
+        emailError.classList.add('visible');
+        isValid = false;
+      } else {
+        emailInput.classList.remove('invalid');
+        emailError.classList.remove('visible');
+      }
+
+      // Password Validation
+      if (!passwordInput.value || passwordInput.value.length < 6) {
+        passwordInput.classList.add('invalid');
+        passwordError.classList.add('visible');
+        isValid = false;
+      } else {
+        passwordInput.classList.remove('invalid');
+        passwordError.classList.remove('visible');
+      }
+
+      if (!isValid) {
+        event.preventDefault(); // Prevent form submission if validation fails
+      } else {
+        // Redirect to the next page if validation passes
+        window.location.href = "otp.html"; // Change this to your desired URL
+      }
+    });
+  </script>
+</body>
+</html>
